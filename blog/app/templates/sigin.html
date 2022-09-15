@@ -1,0 +1,9 @@
+<form action ="{% url 'sigin_action' %}" method="POST">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="email"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <button>sigin</button>
+
+
+
+</form>

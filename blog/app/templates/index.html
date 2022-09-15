@@ -1,0 +1,18 @@
+<!-- #{% for person in persons %}
+    #name :{{person.name}}<br>
+    email:{{person.email}}<br>
+    gender:{{person.gender}}<br>
+    <hr>
+{% endfor %}# -->
+
+
+{% for itc in posts %}
+    title:{{itc.title}}<br>
+    content:{{itc.content}}<br>
+    name :{{itc.person__name}}<br>
+    email:{{itc.person__email}}<br>
+    gender:{{itc.person__gender}}<br>
+    
+    <hr>
+{% endfor %}
+
