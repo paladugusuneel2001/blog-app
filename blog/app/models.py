@@ -17,6 +17,6 @@ class post(models.Model):
     content = models.TextField()
     #create_date_time = models.DateTimeField(auto_now_add=True)
     person = models.ForeignKey(person,on_delete=models.CASCADE)
-
+    image = models.FileField(upload_to="blog/app/media/itc",null=True,blank=True)
     def __str__(self):
         return self.title

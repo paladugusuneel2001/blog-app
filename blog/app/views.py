@@ -12,7 +12,7 @@ from django.contrib import auth
 
 
 def index(request):
-    posts = post.objects.all().values("title","content","person__name","person__email","person__gender")
+    posts = post.objects.all().values("title","content","person__name","person__email","person__gender","image")
     return render(request,"index.html",{"posts":posts})
 
 
@@ -24,23 +24,22 @@ def search_action(request):
 def search(request):
     return render(request,"search.html")
 def signup(request):
-        return render(request,"singup.html")
-def sigin(request):
-        return render(request,"sigin.html")
+        return render(request,"signup.html")
+def signin(request):
+        return render(request,"signin.html")
 
 def signup_action(request):
     username = request.POST.get("email")
     password = request.POST.get("password")
     name = request.POST.get("name")
-    user = User.object.create_user(username=username,password=password,first_name=name)
+    user = User.objects.create_user(username=username,password=password,first_name=name)
     auth.login(request,user=user)
     return redirect('index')
 
-def sigin_action(request):
+def signin_action(request):
     username = request.POST.get("email")
     password = request.POST.get("password")
-    name = request.POST.get("name")
-    user = User.object.create_user(username=username,password=password,first_name=name)
+    user = auth.authenticate(request,username=username,password=password)
     auth.login(request,user=user)
     return redirect('index')
 
